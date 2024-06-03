@@ -1,6 +1,6 @@
 import express from 'express';
-import path from 'path';
-import session from 'express-session';
+import session from 'express-session'; 
+
 import cookieParser from 'cookie-parser';
 
 const host = '0.0.0.0';
@@ -8,7 +8,7 @@ const porta = 3000;
 let ListarUsuario = [];
 const app = express();
 app.use(session({
-    secret:'',
+    secret:'MinH4Ch4v3S3cr3t4',
     resave: true,
     saveUninitialized:true,
     cookie:{
@@ -20,7 +20,7 @@ app.use(cookieParser());
 let listaProdutos=[];
 
 app.use(express.urlencoded({ extended: true }));
-
+import path from 'path';
 
 function cadastrarprodutos(requisicao, resposta) {
     const descricao = requisicao.body.descricao;
@@ -152,7 +152,7 @@ function cadastrarprodutos(requisicao, resposta) {
              crossorigin="anonymous"></script>
 
          </html>`);
-         
+
         resposta.end();
     }
 }
@@ -160,7 +160,7 @@ function cadastrarprodutos(requisicao, resposta) {
 function autenticarUsuario(requisicao, resposta) {
     const usuario = requisicao.body.usuario;
     const senha = requisicao.body.senha;
-    if (usuario == 'felipe' && senha == '03204' || usuario == 'admin' && senha == 'admin') {
+    if (usuario == 'Gabriel' && senha == '12345' || usuario == 'admin' && senha == 'admin') {
         requisicao.session.usuarioAutenticado = true;
         resposta.cookie('dataUltimoAcesso', new Date().toLocaleString(), {
             httpOnly: true,
