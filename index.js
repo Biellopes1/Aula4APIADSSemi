@@ -1,6 +1,6 @@
 import express from 'express';
 import session from 'express-session'; 
-
+import path from 'path';
 import cookieParser from 'cookie-parser';
 
 const host = '0.0.0.0';
@@ -20,7 +20,7 @@ app.use(cookieParser());
 let listaProdutos=[];
 
 app.use(express.urlencoded({ extended: true }));
-import path from 'path';
+
 
 function cadastrarprodutos(requisicao, resposta) {
     const descricao = requisicao.body.descricao;
